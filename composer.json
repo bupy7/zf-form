@@ -1,0 +1,34 @@
+{
+    "name": "bupy7/zf-form",
+    "description": "Simple form for Zend Framework 3.",
+    "license": "BSD 3-Clause",
+    "keywoards": [
+        "zend",
+        "form",
+        "zf3",
+        "zend framework",
+        "zend framework 3"
+    ],
+    "authors": [
+        {
+            "name": "Vasilij Belosludcev",
+            "email": "bupy765@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bupy7\\Form": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bupy7\\Form\\Tests\\": "tests/"
+        }
+    }
+}
