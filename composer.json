@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Bupy7\\Form": "src/"
+            "Bupy7\\Form\\": "src/"
         },
         "classmap": [
             "./Module.php"
