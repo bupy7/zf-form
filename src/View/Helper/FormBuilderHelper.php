@@ -1,6 +1,6 @@
 <?php
 
-namespace BuPy7\Form\View\Helper;
+namespace Bupy7\Form\View\Helper;
 
 use Zend\View\Helper\AbstractHelper;
 
@@ -12,6 +12,26 @@ use Zend\View\Helper\AbstractHelper;
  */
 class FormBuilderHelper extends AbstractHelper
 {
-    
+    /**
+     * @var mixed
+     */
+    protected $formBuilder;
+
+    /**
+     * @param mixed $formBuilder
+     */
+    public function __construct($formBuilder)
+    {
+        $this->formBuilder = $formBuilder;
+    }
+
+    /**
+     * Return instance of form builder.
+     * @return mixed
+     */
+    public function __invoke()
+    {
+        return $this->formBuilder;
+    }
 }
 
