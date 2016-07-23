@@ -4,7 +4,7 @@ namespace Bupy7\Form\Tests\View\Helper;
 
 use PHPUnit_Framework_TestCase;
 use Bupy7\Form\View\Helper\FormBuilderHelper;
-use StdClass;
+use AdamWathan\Form\FormBuilder;
 
 /**
  * @author Vasilij Belosludcev <https://github.com/bupy7>
@@ -13,15 +13,12 @@ use StdClass;
 class FormBuilderHelperTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Instance class test.
+     * A test class of instance
      */
     public function testInstance()
     {
-        $blankFormBuilder       = new StdClass;
-        $blankFormBuilder->test = 'this is test';
-        $formBuilderHelper      = new FormBuilderHelper($blankFormBuilder);
-        $this->assertTrue($formBuilderHelper() instanceof StdClass);
-        $this->assertEquals('this is test', $formBuilderHelper()->test);
+        $formBuilderHelper = new FormBuilderHelper(new FormBuilder);
+        $this->assertInstanceOf(FormBuilder::class, $formBuilderHelper());
     }
 }
 
