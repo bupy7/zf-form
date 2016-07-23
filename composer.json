@@ -37,6 +37,6 @@
         }
     },
     "scripts": {
-        "phpunit": "php ./vendor/bin/phpunit"
+        "phpunit": "php ./vendor/bin/phpunit --debug"
     }
 }
