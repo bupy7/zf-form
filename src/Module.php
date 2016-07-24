@@ -7,7 +7,6 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
 /**
  * The module of Form.
- * 
  * @author Vasilij Belosludcev <https://github.com/bupy7>
  * @since 1.0.0
  */

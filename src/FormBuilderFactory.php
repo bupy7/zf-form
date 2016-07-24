@@ -7,7 +7,6 @@ use AdamWathan\Form\FormBuilder;
 
 /**
  * The factory of `FormBuilder`.
- * 
  * @author Belosludcev Vasilij <https://github.com/bupy7>
  * @since 1.0.0
  */

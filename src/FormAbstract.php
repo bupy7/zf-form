@@ -7,7 +7,6 @@ use Zend\InputFilter\InputFilter;
 
 /**
  * Basic class of the form.
- * 
  * @author Belosludcev Vasilij <https://github.com/bupy7>
  * @since 1.0.0
  */
@@ -41,6 +40,7 @@ abstract class FormAbstract
     }
 
     /**
+     * Setting values into input filter.
      * @param array $values
      * @return static
      */
@@ -50,6 +50,7 @@ abstract class FormAbstract
     }
 
     /**
+     * Validate values.
      * @return boolean
      */
     public function isValid()
@@ -58,7 +59,8 @@ abstract class FormAbstract
     }
 
     /**
-     * @param boolean $onlyValid
+     * Returns values from the input filter.
+     * @param boolean $onlyValid If set `true` then returns only validated values.
      * @return array
      */
     public function getValues($onlyValid = true)
@@ -70,6 +72,7 @@ abstract class FormAbstract
     }
 
     /**
+     * List of errors where a key is name of field and value is array messages.
      * @return array
      */
     public function getErrors()
@@ -78,7 +81,20 @@ abstract class FormAbstract
     }
 
     /**
+     * List of inputs form.
+     * Each an element of an array should be like follow:
+     * [
+     *     'name'      => 'email',
+     *     'required'  => true,
+     *     'validators' => [
+     *          [
+     *              'name' => 'EmailAddress',
+     *          ],
+     *     ],
+     *     // and etc
+     * ]
      * @return array
+     * @see Zend\InputFilter\Input
      */
     protected function inputs()
     {
@@ -86,6 +102,7 @@ abstract class FormAbstract
     }
 
     /**
+     * Attaching declaring inputs into input filter.
      * @return static
      */
     protected function attachInputs()

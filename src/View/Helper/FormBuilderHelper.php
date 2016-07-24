@@ -5,22 +5,22 @@ namespace Bupy7\Form\View\Helper;
 use Zend\View\Helper\AbstractHelper;
 use Bupy7\Form\FormAbstract;
 use Bupy7\Form\ErrorStorage\ErrorStorage;
+use AdamWathan\Form\FormBuilder;
 
 /**
- * Form builder helper.
- * 
+ * Helper of the form builder.
  * @author Belosludcev Vasilij <https://github.com/bupy7>
  * @since 1.0.0
  */
 class FormBuilderHelper extends AbstractHelper
 {
     /**
-     * @var mixed
+     * @var FormBuilder
      */
     protected $formBuilder;
 
     /**
-     * @param mixed $formBuilder
+     * @param FormBuilder $formBuilder
      */
     public function __construct($formBuilder)
     {
@@ -28,9 +28,9 @@ class FormBuilderHelper extends AbstractHelper
     }
 
     /**
-     * Return instance of form builder.
-     * @param FormAbstract|null $form
-     * @return mixed
+     * Return instance of the FormBuilder.
+     * @param FormAbstract|null $form If set instance of Form then would be set error storage and bind values.
+     * @return FormBuilder
      */
     public function __invoke(FormAbstract $form = null)
     {

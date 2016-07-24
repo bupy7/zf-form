@@ -6,23 +6,22 @@ use AdamWathan\Form\ErrorStore\ErrorStoreInterface;
 
 /**
  * Storage of errors for the form builder.
- * 
  * @author Belosludcev Vasilij <https://github.com/bupy7>
  * @since 1.0.0
  */
 class ErrorStorage implements ErrorStoreInterface
 {
     /**
-     * @var array
+     * @var array List of errors where a key is name of field and value is array messages.
      */
-    protected $messages;
+    protected $errors;
 
     /**
-     * @param array $messages
+     * @param array $errors
      */
-    public function __construct(array $messages)
+    public function __construct(array $errors)
     {
-        $this->messages = $messages;
+        $this->errors = $errors;
     }
 
     /**
@@ -30,7 +29,7 @@ class ErrorStorage implements ErrorStoreInterface
      */
     public function hasError($key)
     {
-        return isset($this->messages[$key]);
+        return isset($this->errors[$key]);
     }
 
     /**
@@ -39,7 +38,7 @@ class ErrorStorage implements ErrorStoreInterface
     public function getError($key)
     {
         if ($this->hasError($key)) {
-            return reset($this->messages[$key]);
+            return reset($this->errors[$key]);
         }
     }
 }
