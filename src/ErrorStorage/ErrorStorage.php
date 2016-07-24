@@ -1,6 +1,6 @@
 <?php
 
-namespace Bupy7\Form\ErrorStore;
+namespace Bupy7\Form\ErrorStorage;
 
 use AdamWathan\Form\ErrorStore\ErrorStoreInterface;
 
@@ -10,7 +10,7 @@ use AdamWathan\Form\ErrorStore\ErrorStoreInterface;
  * @author Belosludcev Vasilij <https://github.com/bupy7>
  * @since 1.0.0
  */
-class ErrorStore implements ErrorStoreInterface
+class ErrorStorage implements ErrorStoreInterface
 {
     /**
      * @var array

@@ -4,7 +4,7 @@ namespace Bupy7\Form\View\Helper;
 
 use Zend\View\Helper\AbstractHelper;
 use Bupy7\Form\FormAbstract;
-use Bupy7\Form\ErrorStore\ErrorStore;
+use Bupy7\Form\ErrorStorage\ErrorStorage;
 
 /**
  * Form builder helper.
@@ -36,7 +36,7 @@ class FormBuilderHelper extends AbstractHelper
     {
         $formBuilder = $this->formBuilder;
         if ($form !== null) {
-            $formBuilder->setErrorStore(new ErrorStore($form->getMessages()));
+            $formBuilder->setErrorStore(new ErrorStorage($form->getMessages()));
             $formBuilder->bind($form->getValues());
         }
         return $formBuilder;
