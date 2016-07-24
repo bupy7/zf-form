@@ -36,7 +36,7 @@ class FormBuilderHelper extends AbstractHelper
     {
         $formBuilder = $this->formBuilder;
         if ($form !== null) {
-            $formBuilder->setErrorStore(new ErrorStorage($form->getMessages()));
+            $formBuilder->setErrorStore(new ErrorStorage($form->getErrors()));
             $formBuilder->bind($form->getValues());
         }
         return $formBuilder;

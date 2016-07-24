@@ -72,7 +72,7 @@ abstract class FormAbstract
     /**
      * @return array
      */
-    public function getMessages()
+    public function getErrors()
     {
         return $this->getInputFilter()->getMessages();
     }
