@@ -2,27 +2,33 @@
 /**
  * Configuration file of the `Bupy7\Form` module.
  */
+
+use Bupy7\Form\View\Helper\FormBuilderHelper;
+use Bupy7\Form\View\Helper\FormBuilderHelperFactory;
+use AdamWathan\Form\FormBuilder;
+use Bupy7\Form\FormBuilderFactory;
+
 return [
     'service_manager' => [
         'factories' => [
-            'AdamWathan\Form\FormBuilder' => 'Bupy7\Form\FormBuilderFactory',
+            FormBuilder::class => FormBuilderFactory::class,
         ],
         'shared' => [
-            'AdamWathan\Form\FormBuilder' => false,
+            FormBuilder::class => false,
         ],
         'aliases' => [
-            'Bupy7\Form\FormBuilder' => 'AdamWathan\Form\FormBuilder',
+            'Bupy7\Form\FormBuilder' => FormBuilder::class,
         ],
     ],
     'view_helpers' => [
         'factories' => [
-            'Bupy7\Form\View\Helper\FormBuilderHelper' => 'Bupy7\Form\View\Helper\FormBuilderHelperFactory',
+            FormBuilderHelper::class => FormBuilderHelperFactory::class,
         ],
         'shared' => [
-            'Bupy7\Form\View\Helper\FormBuilderHelper' => false,
+            FormBuilderHelper::class => false,
         ],
         'aliases' => [
-            'formBuilder' => 'Bupy7\Form\View\Helper\FormBuilderHelper',
+            'formBuilder' => FormBuilderHelper::class,
         ],
     ],
 ];
