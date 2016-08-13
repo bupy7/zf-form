@@ -4,6 +4,7 @@ namespace Bupy7\Form;
 
 use Zend\InputFilter\InputFilterInterface;
 use Zend\InputFilter\InputFilter;
+use Zend\InputFilter\InputInterface;
 
 /**
  * Basic class of the form.
@@ -94,7 +95,7 @@ abstract class FormAbstract
      *     // and etc
      * ]
      * @return array
-     * @see Zend\InputFilter\Input
+     * @see InputInterface
      */
     protected function inputs()
     {
