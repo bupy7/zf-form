@@ -17,7 +17,7 @@ class FormBuilderHelperFactory
      */
     public function __invoke(ContainerInterface $container)
     {
-        $formBuilder = $container->getServiceLocator()->get('Bupy7\Form\FormBuilder');
+        $formBuilder = $container->get('Bupy7\Form\FormBuilder');
         return new FormBuilderHelper($formBuilder);
     }
 }
