@@ -61,7 +61,7 @@ abstract class FormAbstract
 
     /**
      * Returns values from the input filter.
-     * @param boolean $onlyValid If set `true` then returns only validated values.
+     * @param boolean $onlyValid If set as `true` will returned raw values (no filtered).
      * @return array
      */
     public function getValues($onlyValid = true)

@@ -17,7 +17,7 @@ class FormBuilderFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testInstance()
     {
-        $moduleConfig   = require __DIR__ . '/../config/module.config.php';
+        $moduleConfig = require __DIR__ . '/../config/module.config.php';
         $serviceManager = new ServiceManager($moduleConfig['service_manager']);
 
         $formBuilder1 = $serviceManager->get('Bupy7\Form\FormBuilder');

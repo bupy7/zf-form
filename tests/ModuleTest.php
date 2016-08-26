@@ -26,9 +26,9 @@ class ModuleTest extends PHPUnit_Framework_TestCase
                 'module_paths' => [
                     __DIR__ . '/../src'
                 ],
-                'config_cache_enabled'      => false,
-                'module_map_cache_enabled'  => false,
-                'check_dependencies'        => true,
+                'config_cache_enabled' => false,
+                'module_map_cache_enabled' => false,
+                'check_dependencies' => true,
             ],
         ]);
         $this->assertInstanceOf(Module::class, $moduleLoader->getModule('Bupy7\Form'));
