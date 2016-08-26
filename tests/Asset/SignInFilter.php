@@ -6,6 +6,8 @@ use Zend\InputFilter\InputFilter;
 
 /**
  * Input filter of signin.
+ * @author Belosludcev Vasilij <https://github.com/bupy7>
+ * @since 1.0.0
  */
 class SignInFilter extends InputFilter
 {

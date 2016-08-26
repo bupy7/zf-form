@@ -6,6 +6,8 @@ use Bupy7\Form\FormAbstract;
 
 /**
  * Form of signin.
+ * @author Belosludcev Vasilij <https://github.com/bupy7>
+ * @since 1.0.0
  */
 class SignInForm extends FormAbstract
 {
