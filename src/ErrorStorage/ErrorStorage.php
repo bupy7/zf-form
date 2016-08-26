@@ -40,5 +40,6 @@ class ErrorStorage implements ErrorStoreInterface
         if ($this->hasError($key)) {
             return reset($this->errors[$key]);
         }
+        return null;
     }
 }
