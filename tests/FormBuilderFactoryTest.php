@@ -5,7 +5,6 @@ namespace Bupy7\Form\Tests\View\Helper;
 use PHPUnit_Framework_TestCase;
 use AdamWathan\Form\FormBuilder;
 use Zend\ServiceManager\ServiceManager;
-use Zend\ServiceManager\Config;
 
 /**
  * @author Vasilij Belosludcev <https://github.com/bupy7>
@@ -19,8 +18,7 @@ class FormBuilderFactoryTest extends PHPUnit_Framework_TestCase
     public function testInstance()
     {
         $moduleConfig   = require __DIR__ . '/../config/module.config.php';
-        $config         = new Config($moduleConfig['service_manager']);
-        $serviceManager = new ServiceManager($config);
+        $serviceManager = new ServiceManager($moduleConfig['service_manager']);
 
         $formBuilder1 = $serviceManager->get('Bupy7\Form\FormBuilder');
         $this->assertInstanceOf(FormBuilder::class, $formBuilder1);

@@ -20,11 +20,8 @@ class FormBuilderHelperFactoryTest extends PHPUnit_Framework_TestCase
     public function testInstance()
     {
         $moduleConfig         = require __DIR__ . '/../../../config/module.config.php';
-        $viewHelpersConfig    = new Config($moduleConfig['view_helpers']);
-        $helperPluginManager  = new HelperPluginManager($viewHelpersConfig);
-        $serviceManagerConfig = new Config($moduleConfig['service_manager']);
-        $serviceManager       = new ServiceManager($serviceManagerConfig);
-        $helperPluginManager->setServiceLocator($serviceManager);
+        $serviceManager       = new ServiceManager($moduleConfig['service_manager']);
+        $helperPluginManager  = new HelperPluginManager($serviceManager, $moduleConfig['view_helpers']);
 
         $formBuilderHelper1 = $helperPluginManager->get('formBuilder');
         $this->assertInstanceOf(FormBuilder::class, $formBuilderHelper1());

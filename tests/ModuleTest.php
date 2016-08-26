@@ -19,6 +19,7 @@ class ModuleTest extends PHPUnit_Framework_TestCase
     {
         $moduleLoader = new ModuleLoader([
             'modules' => [
+                'Zend\Router',
                 'Bupy7\Form',
             ],
             'module_listener_options' => [
