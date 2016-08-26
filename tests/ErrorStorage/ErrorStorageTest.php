@@ -26,7 +26,9 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
 
         $errorStorage = new ErrorStorage($signInForm->getErrors());
         $this->assertTrue($errorStorage->hasError('email'));
-        $this->assertTrue(!empty($errorStorage->getError('email')));
+        $this->assertFalse(empty($errorStorage->getError('email')));
+        $this->assertFalse($errorStorage->hasError('password'));
+        $this->assertEquals(null, $errorStorage->getError('password'));
     }
 }
 
