@@ -12,7 +12,7 @@ use Bupy7\Form\FormAbstract;
 class SignInForm extends FormAbstract
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     protected function inputs()
     {

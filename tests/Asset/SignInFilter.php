@@ -12,7 +12,7 @@ use Zend\InputFilter\InputFilter;
 class SignInFilter extends InputFilter
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __construct()
     {

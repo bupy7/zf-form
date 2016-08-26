@@ -14,7 +14,7 @@ use Zend\ServiceManager\Factory\FactoryInterface;
 class FormBuilderFactory implements FactoryInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {

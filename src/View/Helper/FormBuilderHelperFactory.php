@@ -13,7 +13,7 @@ use Zend\ServiceManager\Factory\FactoryInterface;
 class FormBuilderHelperFactory implements FactoryInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
