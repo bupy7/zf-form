@@ -5,6 +5,7 @@ namespace Bupy7\Form\Tests;
 use PHPUnit_Framework_TestCase;
 use Bupy7\Form\Tests\Asset\SignInForm;
 use Bupy7\Form\Tests\Asset\SignInFilter;
+use Bupy7\Form\Tests\Asset\EmptyForm;
 
 /**
  * @author Vasilij Belosludcev <https://github.com/bupy7>
@@ -76,6 +77,16 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(SignInFilter::class, $signInForm->getInputFilter());
         $signInForm->setValues([]);
         $this->assertFalse($signInForm->isValid());
+    }
+
+    /**
+     * Testing empty inputs.
+     */
+    public function testEmptyInputs()
+    {
+        $emptyForm = new EmptyForm;
+        $emptyForm->setValues([]);
+        $this->assertTrue($emptyForm->isValid());
     }
 }
 
