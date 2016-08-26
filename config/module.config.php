@@ -15,6 +15,7 @@ return [
         ],
         'shared' => [
             FormBuilder::class => false,
+            'Bupy7\Form\FormBuilder' => false,
         ],
         'aliases' => [
             'Bupy7\Form\FormBuilder' => FormBuilder::class,
@@ -26,6 +27,7 @@ return [
         ],
         'shared' => [
             FormBuilderHelper::class => false,
+            'formBuilder' => false,
         ],
         'aliases' => [
             'formBuilder' => FormBuilderHelper::class,

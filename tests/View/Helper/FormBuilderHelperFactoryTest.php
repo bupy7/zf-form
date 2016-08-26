@@ -4,7 +4,6 @@ namespace Bupy7\Form\Tests\View\Helper;
 
 use PHPUnit_Framework_TestCase;
 use Zend\View\HelperPluginManager;
-use Zend\ServiceManager\Config;
 use Zend\ServiceManager\ServiceManager;
 use AdamWathan\Form\FormBuilder;
 
