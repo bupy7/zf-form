@@ -36,14 +36,8 @@ Form:
 
 use Bupy7\Form\FormAbstract;
 
-/**
- * Form of signin.
- */
 class SignInForm extends FormAbstract
 {
-    /**
-     * {@inheritDoc}
-     */
     protected function inputs()
     {
         return [
