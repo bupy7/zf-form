@@ -123,6 +123,31 @@ public function signinAction()
 }
 ```
 
+Configuration for `ZF-Commons/ZfcTwig`
+--------------------------------------
+
+```php
+use Bupy7\Form\View\Helper\FormBuilderHelper;
+use Bupy7\Form\View\Helper\FormBuilderHelperFactory;
+
+return [
+    'zfctwig' => [
+        'helper_manager' => [
+            'factories' => [
+                FormBuilderHelper::class => FormBuilderHelperFactory::class,
+            ],
+            'shared' => [
+                'formBuilder' => false,
+                FormBuilderHelper::class => false,
+            ],
+            'aliases' => [
+                'formBuilder' => FormBuilderHelper::class,
+            ],
+        ],
+    ],
+];
+```
+
 Links
 -----
 
