@@ -36,7 +36,7 @@ Usage
 Form:
 
 ```php
-// Application/src/Form/SignInForm.php
+// module/Application/src/Form/SignInForm.php
 
 use Bupy7\Form\FormAbstract;
 
@@ -66,7 +66,7 @@ class SignInForm extends FormAbstract
 View:
 
 ```php
-// Application/view/auth/signin.phtml
+// module/Application/view/auth/signin.phtml
 
 <?php $formBuilder = $this->formBuilder($this->signInForm); ?>
 <?= $formBuilder->open()->action($this->url('signin'))->addClass('form-horizontal'); ?>
@@ -99,7 +99,7 @@ View:
 Controller:
 
 ```php
-// Application/src/Controller/AuthController.php
+// module/Application/src/Controller/AuthController.php
 
 use Application/Form/SignInForm;
 
@@ -127,6 +127,8 @@ Configuration for `ZF-Commons/ZfcTwig`
 --------------------------------------
 
 ```php
+// config/autoload/twig.global.php
+
 use Bupy7\Form\View\Helper\FormBuilderHelper;
 use Bupy7\Form\View\Helper\FormBuilderHelperFactory;
 
