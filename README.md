@@ -8,7 +8,7 @@ zf-form
 [![Build Status](https://travis-ci.org/bupy7/zf-form.svg?branch=master)](https://travis-ci.org/bupy7/zf-form)
 [![Coverage Status](https://coveralls.io/repos/github/bupy7/zf-form/badge.svg?branch=master)](https://coveralls.io/github/bupy7/zf-form?branch=master)
 
-Simple form with [`zendframework/zend-inputfilter`](https://github.com/zendframework/zend-inputfilter)
+Simple and powerful form with [`zendframework/zend-inputfilter`](https://github.com/zendframework/zend-inputfilter)
 and [`adamwathan/form`](https://github.com/adamwathan/form).
 
 Installation
