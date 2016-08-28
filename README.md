@@ -18,11 +18,15 @@ The preferred way to install this extension is through composer.
 
 Either run
 
+```
 $ php composer.phar require bupy7/zf-form "*"
+```
 
 or add
 
+```
 "bupy7/zf-form": "*"
+```
 
 to the require section of your composer.json file.
 
