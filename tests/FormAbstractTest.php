@@ -33,7 +33,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testValidInputs()
     {
@@ -56,7 +56,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * @since 2.0.0
+    * @since 1.1.0
     */
     public function testInvalidInputs()
     {
@@ -83,7 +83,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testValidGroupInputs()
     {
@@ -104,7 +104,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testInvalidGroupInputs()
     {
@@ -129,7 +129,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testValidOutputs()
     {
@@ -157,7 +157,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testInvalidOutputs()
     {
@@ -185,7 +185,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testValidGet()
     {
@@ -199,7 +199,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Bupy7\Form\Exception\UnknownPropertyException
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testInvalidGet()
     {
@@ -212,7 +212,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testValidSet()
     {
@@ -223,7 +223,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Bupy7\Form\Exception\UnknownPropertyException
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testInvalidSet()
     {
@@ -233,7 +233,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Bupy7\Form\Exception\InvalidCallException
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testWriteOnly()
     {
@@ -245,7 +245,7 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Bupy7\Form\Exception\InvalidCallException
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function testReadOnly()
     {

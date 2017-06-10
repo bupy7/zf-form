@@ -16,7 +16,7 @@ abstract class FormAbstract
 {
     /**
      * Default scenario for inputs.
-     * @since 2.0.0
+     * @since 1.1.0
      */
     const SCENARIO_DEFAULT = 1;
 
@@ -26,7 +26,7 @@ abstract class FormAbstract
     protected $inputFilter;
     /**
      * @var integer The current scenario for inputs.
-     * @since 2.0.0
+     * @since 1.1.0
      */
     protected $scenario;
 
@@ -117,7 +117,7 @@ abstract class FormAbstract
     /**
      * Alert has errors about.
      * @return bool
-     * @since 2.0.0
+     * @since 1.1.0
      */
     public function hasErrors()
     {
@@ -128,7 +128,7 @@ abstract class FormAbstract
      * @param string $name
      * @param mixed $value
      * @return mixed
-     * @since 2.0.0
+     * @since 1.1.0
      * @throws InvalidCallException
      * @throws UnknownPropertyException
      */
@@ -146,7 +146,7 @@ abstract class FormAbstract
 
     /**
      * @param string $name
-     * @since 2.0.0
+     * @since 1.1.0
      * @throws InvalidCallException
      * @throws UnknownPropertyException
      */
@@ -221,7 +221,7 @@ abstract class FormAbstract
      * ]
      * By default uses input names from declared inputs as SCENARIO_DEFAULT.
      * @return array
-     * @since 2.0.0
+     * @since 1.1.0
      */
     protected function scenarios()
     {
@@ -236,7 +236,7 @@ abstract class FormAbstract
      * Return current scenario input names.
      * @param integer $scenario
      * @return array
-     * @since 2.0.0
+     * @since 1.1.0
      */
     protected function findScenario($scenario = null)
     {

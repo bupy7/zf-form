@@ -6,7 +6,7 @@ use Exception;
 
 /**
  * @author Belosludcev Vasily <https://github.com/bupy7>
- * @since 2.0.0
+ * @since 1.1.0
  */
 class UnknownPropertyException extends Exception
 {

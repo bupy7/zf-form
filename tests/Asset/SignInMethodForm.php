@@ -6,7 +6,7 @@ use Bupy7\Form\FormAbstract;
 
 /**
  * @author Belosludcev Vasilij <https://github.com/bupy7>
- * @since 2.0.0
+ * @since 1.1.0
  */
 class SignInMethodForm extends FormAbstract
 {

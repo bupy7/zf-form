@@ -195,7 +195,7 @@ Controller:
 
 ```php
 // DEFAULT scenario
-$signInForm = new SignInScenarioForm;
+$signInForm = new SignInForm;
 $signInForm->email = 'test@gmail.com';
 $signInForm->password = '12q34e56t78';
 if ($signInForm->isValid()) {
@@ -203,7 +203,7 @@ if ($signInForm->isValid()) {
 }
 
 // or PASSWORD scenario
-$signInForm = new SignInScenarioForm(SignInScenarioForm::SCENARIO_PASSWORD)); // or setScenario(SignInScenarioForm::SCENARIO_PASSWORD)
+$signInForm = new SignInScenarioForm(SignInForm::SCENARIO_PASSWORD)); // or setScenario(SignInForm::SCENARIO_PASSWORD)
 $signInForm->password = '12q34e56t78';
 if ($signInForm->isValid()) {
     // do something
