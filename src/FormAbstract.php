@@ -82,7 +82,7 @@ abstract class FormAbstract
      * @param array $values
      * @return static
      */
-    public function setValues(array $values)
+    public function setValues($values)
     {
         foreach ($this->findScenario() as $name) {
             if (isset($values[$name])) {
