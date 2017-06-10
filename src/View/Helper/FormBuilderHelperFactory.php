@@ -21,4 +21,3 @@ class FormBuilderHelperFactory implements FactoryInterface
         return new FormBuilderHelper($formBuilder);
     }
 }
-

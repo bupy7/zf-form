@@ -42,6 +42,15 @@ use Bupy7\Form\FormAbstract;
 
 class SignInForm extends FormAbstract
 {
+    /**
+     * @var string 
+     */
+    public $email;
+    /**
+     * @var string 
+     */
+    public $password;
+
     protected function inputs()
     {
         return [
@@ -109,8 +118,9 @@ public function signinAction()
     if ($this->getRequest()->isPost()) {
         $signInForm->setValues($this->getRequest()->getPost());
         if ($signInForm->isValid()) {
-            $data = $signInForm->getValues();
             // authentication...
+            // $auth->setLogin($signInForm->email)
+            // $auth->setPassword($signInForm->password);
             // $result = $auth->authenticate();
             if ($result->isValid()) {
                 // some actions
@@ -120,6 +130,83 @@ public function signinAction()
     return new ViewModel([
         'signInForm' => $signInForm,
     ]);
+}
+```
+
+Uses scenarios
+--------------
+
+By default using `FormAbstract::DEFAULT_SCENARIO` but you can use your customs one:
+
+```php
+// module/Application/src/Form/SignInForm.php
+
+use Bupy7\Form\FormAbstract;
+
+class SignInForm extends FormAbstract
+{
+    const SCENARIO_PASSWORD = 2;
+
+    /**
+     * @var string
+     */
+    public $email;
+    /**
+     * @var string
+     */
+    public $password;
+
+    protected function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios[self::SCENARIO_PASSWORD] = [
+            'password',
+        ];
+        return $scenarios;
+    }
+
+    protected function inputs()
+    {
+        return [
+            [
+                'name' => 'email',
+                'required' => true,
+                'validators' => [
+                    [
+                        'name' => 'EmailAddress',
+                    ],
+                ],
+            ],
+            [
+                'name' => 'password',
+                'required' => true,
+                'filters' => [
+                    [
+                        'name' => 'StringTrim',
+                    ]
+                ],
+            ],
+        ];
+    }
+}
+```
+
+Controller:
+
+```php
+// DEFAULT scenario
+$signInForm = new SignInScenarioForm;
+$signInForm->email = 'test@gmail.com';
+$signInForm->password = '12q34e56t78';
+if ($signInForm->isValid()) {
+    // do something
+}
+
+// or PASSWORD scenario
+$signInForm = new SignInScenarioForm(SignInScenarioForm::SCENARIO_PASSWORD)); // or setScenario(SignInScenarioForm::SCENARIO_PASSWORD)
+$signInForm->password = '12q34e56t78';
+if ($signInForm->isValid()) {
+    // do something
 }
 ```
 

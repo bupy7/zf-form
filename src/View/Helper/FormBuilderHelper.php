@@ -42,4 +42,3 @@ class FormBuilderHelper extends AbstractHelper
         return $formBuilder;
     }
 }
-

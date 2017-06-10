@@ -21,4 +21,3 @@ class FormBuilderHelperTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(FormBuilder::class, $formBuilderHelper());
     }
 }
-

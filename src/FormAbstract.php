@@ -2,9 +2,10 @@
 
 namespace Bupy7\Form;
 
-use Zend\InputFilter\InputFilterInterface;
+use Zend\InputFilter\BaseInputFilter;
 use Zend\InputFilter\InputFilter;
-use Zend\InputFilter\InputInterface;
+use Bupy7\Form\Exception\InvalidCallException;
+use Bupy7\Form\Exception\UnknownPropertyException;
 
 /**
  * Basic class of the form.
@@ -14,15 +15,34 @@ use Zend\InputFilter\InputInterface;
 abstract class FormAbstract
 {
     /**
-     * @var InputFilterInterface
+     * Default scenario for inputs.
+     * @since 2.0.0
      */
-    protected $inputFilter;
+    const SCENARIO_DEFAULT = 1;
 
     /**
-     * @param InputFilterInterface $inputFilter
+     * @var BaseInputFilter
+     */
+    protected $inputFilter;
+    /**
+     * @var integer The current scenario for inputs.
+     * @since 2.0.0
+     */
+    protected $scenario;
+
+    /**
+     * @param integer $scenario
+     */
+    public function __construct($scenario = self::SCENARIO_DEFAULT)
+    {
+        $this->scenario = $scenario;
+    }
+
+    /**
+     * @param BaseInputFilter $inputFilter
      * @return static
      */
-    public function setInputFilter(InputFilterInterface $inputFilter)
+    public function setInputFilter(BaseInputFilter $inputFilter)
     {
         $this->inputFilter = $inputFilter;
         $this->attachInputs();
@@ -30,7 +50,7 @@ abstract class FormAbstract
     }
 
     /**
-     * @return InputFilterInterface
+     * @return BaseInputFilter
      */
     public function getInputFilter()
     {
@@ -41,35 +61,48 @@ abstract class FormAbstract
     }
 
     /**
+     * Validate inputs.
+     * @param string|array|null $name
+     * @return boolean
+     */
+    public function isValid($name = null)
+    {
+        $this->getInputFilter()->setData($this->getValues());
+        $names = $this->findScenario();
+        if ($name !== null) {
+            $names = array_intersect($names, (array)$name);
+        }
+        $isValid = $this->getInputFilter()->setValidationGroup($names)->isValid();
+        $this->setValues($this->getInputFilter()->getValues());
+        return $isValid;
+    }
+
+    /**
      * Setting values into input filter.
      * @param array $values
      * @return static
      */
-    public function setValues($values)
+    public function setValues(array $values)
     {
-        $this->getInputFilter()->setData($values);
-    }
-
-    /**
-     * Validate values.
-     * @return boolean
-     */
-    public function isValid()
-    {
-        return $this->getInputFilter()->isValid();
+        foreach ($this->findScenario() as $name) {
+            if (isset($values[$name])) {
+                $this->$name = $values[$name];
+            }
+        }
+        return $this;
     }
 
     /**
      * Returns values from the input filter.
-     * @param boolean $onlyValid If set as `true` will returned raw values (no filtered).
      * @return array
      */
-    public function getValues($onlyValid = true)
+    public function getValues()
     {
-        if ($onlyValid) {
-            return $this->getInputFilter()->getValues();
+        $values = [];
+        foreach ($this->findScenario() as $name) {
+            $values[$name] = $this->$name;
         }
-        return $this->getInputFilter()->getRawValues();
+        return $values;
     }
 
     /**
@@ -79,6 +112,71 @@ abstract class FormAbstract
     public function getErrors()
     {
         return $this->getInputFilter()->getMessages();
+    }
+
+    /**
+     * Alert has errors about.
+     * @return bool
+     * @since 2.0.0
+     */
+    public function hasErrors()
+    {
+        return !empty($this->getInputFilter()->getInvalidInput());
+    }
+
+    /**
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     * @since 2.0.0
+     * @throws InvalidCallException
+     * @throws UnknownPropertyException
+     */
+    public function __set($name, $value)
+    {
+        $method = 'set' . ucfirst($name);
+        if (method_exists($this, $method)) {
+            $this->$method($value);
+        } elseif (method_exists($this, 'get' . ucfirst($name))) {
+            throw new InvalidCallException('Setting read-only property: ' . get_class($this) . '::' . $name);
+        } else {
+            throw new UnknownPropertyException('Setting unknown property: ' . get_class($this) . '::' . $name);
+        }
+    }
+
+    /**
+     * @param string $name
+     * @since 2.0.0
+     * @throws InvalidCallException
+     * @throws UnknownPropertyException
+     */
+    public function __get($name)
+    {
+        $method = 'get' . ucfirst($name);
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        } elseif (method_exists($this, 'set' . ucfirst($name))) {
+            throw new InvalidCallException('Getting write-only property: ' . get_class($this) . '::' . $name);
+        }
+        throw new UnknownPropertyException('Getting unknown property: ' . get_class($this) . '::' . $name);
+    }
+
+    /**
+     * @param integer $scenario
+     * @return static
+     */
+    public function setScenario($scenario)
+    {
+        $this->scenario = $scenario;
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getScenario()
+    {
+        return $this->scenario;
     }
 
     /**
@@ -95,7 +193,7 @@ abstract class FormAbstract
      *     // and etc
      * ]
      * @return array
-     * @see InputInterface
+     * @see \Zend\InputFilter\InputInterface
      */
     protected function inputs()
     {
@@ -112,5 +210,40 @@ abstract class FormAbstract
             $this->getInputFilter()->add($input);
         }
         return $this;
+    }
+
+    /**
+     * Collection of scenarios input names.
+     * Each an element of a scenario should be like follow:
+     * [
+     *      self::SCENARIO_EXAMPLE_1 => ['email', 'password'],
+     *      self::SCENARIO_EXAMPLE_2 => ['person', 'email', 'password'],
+     * ]
+     * By default uses input names from declared inputs as SCENARIO_DEFAULT.
+     * @return array
+     * @since 2.0.0
+     */
+    protected function scenarios()
+    {
+        $scenarios = [self::SCENARIO_DEFAULT => []];
+        foreach ($this->getInputFilter()->getInputs() as $input) {
+            $scenarios[self::SCENARIO_DEFAULT][] = $input->getName();
+        }
+        return $scenarios;
+    }
+
+    /**
+     * Return current scenario input names.
+     * @param integer $scenario
+     * @return array
+     * @since 2.0.0
+     */
+    protected function findScenario($scenario = null)
+    {
+        $scenarios = $this->scenarios();
+        if ($scenario === null) {
+            $scenario = $this->getScenario();
+        }
+        return isset($scenarios[$scenario]) ? $scenarios[$scenario] : [];
     }
 }

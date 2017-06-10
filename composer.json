@@ -1,7 +1,7 @@
 {
     "name": "bupy7/zf-form",
     "description": "Simple form for Zend Framework 3.",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "license": "BSD 3-Clause",
     "keywoards": [
         "zend",
@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": "^5.6 || ^7.0",
+        "php": "^5.6 || ^7.0 < 7.2",
         "adamwathan/form": "~0.8.9",
         "zendframework/zend-view": "^2.8",
         "zendframework/zend-modulemanager": "^2.7.2",
@@ -27,9 +27,10 @@
         "zendframework/zend-inputfilter": "^2.7.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.5",
-        "satooshi/php-coveralls": "1.0.*",
-        "zendframework/zend-test": "^3.0.1"
+        "phpunit/phpunit": ">=5.5 <6.0.0",
+        "satooshi/php-coveralls": "^1.0.1",
+        "zendframework/zend-test": "^3.0.1",
+        "friendsofphp/php-cs-fixer": "~2.2.3"
     },
     "autoload": {
         "psr-4": {
@@ -42,6 +43,8 @@
         }
     },
     "scripts": {
-        "phpunit": "php ./vendor/bin/phpunit --debug"
+        "test": "./vendor/bin/phpunit --debug",
+        "fix": "./vendor/bin/php-cs-fixer fix --config=./phpcs.php",
+        "clean": "bash ./bin/clean"
     }
 }

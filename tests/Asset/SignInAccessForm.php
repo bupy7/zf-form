@@ -5,15 +5,38 @@ namespace Bupy7\Form\Tests\Asset;
 use Bupy7\Form\FormAbstract;
 
 /**
- * Form of signin.
  * @author Belosludcev Vasilij <https://github.com/bupy7>
- * @since 1.0.0
+ * @since 2.0.0
  */
-class SignInForm extends FormAbstract
+class SignInAccessForm extends FormAbstract
 {
     /**
-     * {@inheritDoc}
+     * @var string
      */
+    protected $email;
+    /**
+     * @var string
+     */
+    protected $password;
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $password
+     * @return static
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+
     protected function inputs()
     {
         return [

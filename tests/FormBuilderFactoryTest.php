@@ -29,8 +29,7 @@ class FormBuilderFactoryTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($formBuilder1, $formBuilder2);
 
         $formBuilder1->setToken('test token 1');
-        $formBuilder2->setToken('test token 2');     
+        $formBuilder2->setToken('test token 2');
         $this->assertNotEquals($formBuilder1, $formBuilder2);
     }
 }
-
