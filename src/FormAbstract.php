@@ -28,15 +28,7 @@ abstract class FormAbstract
      * @var integer The current scenario for inputs.
      * @since 1.1.0
      */
-    protected $scenario;
-
-    /**
-     * @param integer $scenario
-     */
-    public function __construct($scenario = self::SCENARIO_DEFAULT)
-    {
-        $this->scenario = $scenario;
-    }
+    protected $scenario = self::SCENARIO_DEFAULT;
 
     /**
      * @param BaseInputFilter $inputFilter

@@ -203,7 +203,8 @@ if ($signInForm->isValid()) {
 }
 
 // or PASSWORD scenario
-$signInForm = new SignInForm(SignInForm::SCENARIO_PASSWORD)); // or setScenario(SignInForm::SCENARIO_PASSWORD)
+$signInForm = new SignInForm;
+$signInForm->setScenario(SignInForm::SCENARIO_PASSWORD);
 $signInForm->password = '12q34e56t78';
 if ($signInForm->isValid()) {
     // do something
