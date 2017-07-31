@@ -8,6 +8,7 @@ use Bupy7\Form\Tests\Asset\SignInMethodForm;
 use Bupy7\Form\Tests\Asset\SignInAccessForm;
 use Bupy7\Form\Tests\Asset\SignInPropertyForm;
 use Bupy7\Form\Tests\Asset\SignInScenarioForm;
+use Bupy7\Form\Tests\Asset\NullForm;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -253,6 +254,9 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
         $signInForm->email = 'test@gmail.com';
     }
 
+    /**
+     * @since 1.1.0
+     */
     public function testScenario()
     {
         // DEFAULT scenario
@@ -266,5 +270,19 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
         $signInForm->email = null;
         $this->assertTrue($signInForm->isValid());
         $this->assertEquals(SignInScenarioForm::SCENARIO_PASSWORD, $signInForm->getScenario());
+    }
+
+    /**
+     * @since 1.2.1
+     */
+    public function testNullValues()
+    {
+        $signInForm = new NullForm;
+        $signInForm->setValues([
+            'email' => 'test@gmail.com',
+            'password' => '',
+        ]);
+        $this->assertTrue($signInForm->isValid());
+        $this->assertNull($signInForm->password);
     }
 }

@@ -77,7 +77,7 @@ abstract class FormAbstract
     public function setValues($values)
     {
         foreach ($this->findScenario() as $name) {
-            if (isset($values[$name])) {
+            if (array_key_exists($name, $values)) {
                 $this->$name = $values[$name];
             }
         }
