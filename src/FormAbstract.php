@@ -111,8 +111,9 @@ abstract class FormAbstract
     {
         if (!$this->getInputFilter() instanceof ErrorMessageInterface) {
             throw new NotSupportedException(sprintf(
-                'Method %s is not supported.',
-                get_class($this->getInputFilter())
+                'Method %s::%s() is not supported.',
+                get_class($this->getInputFilter()),
+                __FUNCTION__
             ));
         }
         $this->getInputFilter()->setMessage($name, $error);
