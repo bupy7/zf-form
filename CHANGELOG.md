@@ -1,6 +1,11 @@
 zf-form
 =======
 
+1.2.2 [2017-08-16]
+------------------
+
+- Add: Ability to set an error message for an input.
+
 1.2.1 [2017-07-31]
 ------------------
 

@@ -3,9 +3,11 @@
 namespace Bupy7\Form;
 
 use Zend\InputFilter\BaseInputFilter;
-use Zend\InputFilter\InputFilter;
+use Bupy7\Form\InputFilter\InputFilter;
 use Bupy7\Form\Exception\InvalidCallException;
 use Bupy7\Form\Exception\UnknownPropertyException;
+use Bupy7\Form\InputFilter\ErrorMessageInterface;
+use Bupy7\Form\Exception\NotSupportedException;
 
 /**
  * Basic class of the form.
@@ -95,6 +97,26 @@ abstract class FormAbstract
             $values[$name] = $this->$name;
         }
         return $values;
+    }
+
+    /**
+     * Set error message for the input.
+     * @param string $name
+     * @param string $error
+     * @return static
+     * @since 1.2.2
+     * @throws NotSupportedException
+     */
+    public function setError($name, $error)
+    {
+        if (!$this->getInputFilter() instanceof ErrorMessageInterface) {
+            throw new NotSupportedException(sprintf(
+                'Method %s is not supported.',
+                get_class($this->getInputFilter())
+            ));
+        }
+        $this->getInputFilter()->setMessage($name, $error);
+        return $this;
     }
 
     /**

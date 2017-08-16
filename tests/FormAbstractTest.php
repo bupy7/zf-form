@@ -10,6 +10,8 @@ use Bupy7\Form\Tests\Asset\SignInPropertyForm;
 use Bupy7\Form\Tests\Asset\SignInScenarioForm;
 use Bupy7\Form\Tests\Asset\NullForm;
 use PHPUnit_Framework_TestCase;
+use Bupy7\Form\Tests\Asset\ProfileForm;
+use Zend\InputFilter\InputFilter;
 
 /**
  * @author Vasilij Belosludcev <https://github.com/bupy7>
@@ -284,5 +286,38 @@ class FormAstractTest extends PHPUnit_Framework_TestCase
         ]);
         $this->assertTrue($signInForm->isValid());
         $this->assertNull($signInForm->password);
+    }
+
+    /**
+     * @since 1.2.2
+     */
+    public function testSetError()
+    {
+        $profileForm = new ProfileForm;
+        $profileForm->setValues([
+            'age' => 23,
+        ]);
+        $this->assertTrue($profileForm->isValid());
+        $this->assertFalse($profileForm->hasErrors());
+
+        $profileForm->setError('age', 'Today you can only to set age between 50 and 80.');
+        $this->assertTrue($profileForm->hasErrors());
+    }
+
+    /**
+     * @expectedException \Bupy7\Form\Exception\NotSupportedException
+     * @since 1.2.2
+     */
+    public function testSetMessageException()
+    {
+        $signInFilter = new ProfileForm;
+        $signInFilter->setInputFilter(new InputFilter);
+        $signInFilter->setValues([
+            'age' => 23,
+        ]);
+
+        $this->assertTrue($signInFilter->isValid());
+
+        $signInFilter->setError('email', 'Some error message.');
     }
 }

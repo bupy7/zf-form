@@ -1,8 +1,8 @@
 {
     "name": "bupy7/zf-form",
     "description": "Simple form for Zend Framework 3.",
-    "version": "1.2.1",
-    "license": "BSD 3-Clause",
+    "version": "1.2.2",
+    "license": "BSD-3-Clause",
     "keywoards": [
         "zend",
         "form",
