@@ -1,6 +1,11 @@
 zf-form
 =======
 
+1.2.3 [2017-10-02]
+------------------
+
+Enh: Replaced `adamwathan/form` to `bupy7/php-html-form` (fork of adamwathan/form).
+
 1.2.2 [2017-08-16]
 ------------------
 
