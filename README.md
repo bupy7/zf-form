@@ -242,7 +242,7 @@ Links
 -----
 
 - [Documentation of `zendframework/zend-inputfilter`](https://zendframework.github.io/zend-inputfilter/).
-- [Documentation of `bupy7/php-html-form`](https://github.com/bupy7/php-html-form/blob/master/readme.md).
+- [Documentation of `bupy7/php-html-form`](https://github.com/bupy7/php-html-form/blob/master/README.md).
 
 License
 -------
