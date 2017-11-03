@@ -9,7 +9,7 @@ zf-form
 [![Coverage Status](https://coveralls.io/repos/github/bupy7/zf-form/badge.svg?branch=master)](https://coveralls.io/github/bupy7/zf-form?branch=master)
 
 Simple and powerful form with [`zendframework/zend-inputfilter`](https://github.com/zendframework/zend-inputfilter)
-and [`adamwathan/form`](https://github.com/adamwathan/form).
+and [`bupy7/php-html-form`](https://github.com/bupy7/php-html-form).
 
 Installation
 ------------
@@ -242,7 +242,7 @@ Links
 -----
 
 - [Documentation of `zendframework/zend-inputfilter`](https://zendframework.github.io/zend-inputfilter/).
-- [Documentation of `adamwathan/form`](https://github.com/adamwathan/form/blob/master/readme.md).
+- [Documentation of `bupy7/php-html-form`](https://github.com/bupy7/php-html-form/blob/master/readme.md).
 
 License
 -------
