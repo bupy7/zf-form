@@ -61,13 +61,19 @@ abstract class FormAbstract
      */
     public function isValid($name = null)
     {
-        $this->getInputFilter()->setData($this->getValues());
+        $this->resetInputFilter()
+            ->getInputFilter()
+            ->setData($this->getValues());
+
         $names = $this->findScenario();
         if ($name !== null) {
             $names = array_intersect($names, (array)$name);
         }
-        $isValid = $this->getInputFilter()->setValidationGroup($names)->isValid();
+        $isValid = $this->getInputFilter()
+            ->setValidationGroup($names)
+            ->isValid();
         $this->setValues($this->getInputFilter()->getValues());
+
         return $isValid;
     }
 
@@ -260,5 +266,15 @@ abstract class FormAbstract
             $scenario = $this->getScenario();
         }
         return isset($scenarios[$scenario]) ? $scenarios[$scenario] : [];
+    }
+
+    /**
+     * @return static
+     * @since 1.2.5
+     */
+    protected function resetInputFilter()
+    {
+        $this->inputFilter = null;
+        return $this;
     }
 }
