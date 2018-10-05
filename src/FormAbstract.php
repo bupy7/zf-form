@@ -274,7 +274,10 @@ abstract class FormAbstract
      */
     protected function resetInputFilter()
     {
-        $this->setInputFilter($this->getInputFilter());
+        foreach ($this->getInputFilter()->getInputs() as $input) {
+            $this->getInputFilter()->remove($input->getName());
+        }
+        $this->attachInputs();
         return $this;
     }
 }
