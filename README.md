@@ -11,6 +11,8 @@ zf-form
 Simple and powerful form with [`zendframework/zend-inputfilter`](https://github.com/zendframework/zend-inputfilter)
 and [`bupy7/php-html-form`](https://github.com/bupy7/php-html-form).
 
+If you want to use only form input filter I recomend to you [php-input-filter](https://github.com/bupy7/php-input-filter) instead. In the future this package (`zf-form`) will work together with `php-input-filter`.
+
 Installation
 ------------
 
