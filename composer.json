@@ -1,9 +1,9 @@
 {
     "name": "bupy7/zf-form",
     "description": "Simple form for Zend Framework 3.",
-    "version": "1.2.6",
+    "version": "1.2.7",
     "license": "BSD-3-Clause",
-    "keywoards": [
+    "keywords": [
         "zend",
         "form",
         "zf",
@@ -13,8 +13,8 @@
     ],
     "authors": [
         {
-            "name": "Vasilij Belosludcev",
-            "email": "bupy765@gmail.com"
+            "name": "Vasily Belosloodcev",
+            "email": "vasily.belosloodcev@gmail.com"
         }
     ],
     "require": {
@@ -44,7 +44,6 @@
     },
     "scripts": {
         "test": "./vendor/bin/phpunit --debug",
-        "fix": "./vendor/bin/php-cs-fixer fix --config=./phpcs.php",
-        "clean": "bash ./bin/clean"
+        "fix": "./vendor/bin/php-cs-fixer fix --config=./phpcs.php"
     }
 }
