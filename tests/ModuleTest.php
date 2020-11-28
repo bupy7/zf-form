@@ -3,7 +3,7 @@
 namespace Bupy7\Form\Tests;
 
 use PHPUnit_Framework_TestCase;
-use Zend\Test\Util\ModuleLoader;
+use Laminas\Test\Util\ModuleLoader;
 use Bupy7\Form\Module;
 
 /**
@@ -19,7 +19,7 @@ class ModuleTest extends PHPUnit_Framework_TestCase
     {
         $moduleLoader = new ModuleLoader([
             'modules' => [
-                'Zend\Router',
+                'Laminas\Router',
                 'Bupy7\Form',
             ],
             'module_listener_options' => [

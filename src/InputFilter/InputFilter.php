@@ -2,7 +2,7 @@
 
 namespace Bupy7\Form\InputFilter;
 
-use Zend\InputFilter\InputFilter as BaseInputFilter;
+use Laminas\InputFilter\InputFilter as BaseInputFilter;
 
 /**
  * @author Belosludcev Vasilij <https://github.com/bupy7>

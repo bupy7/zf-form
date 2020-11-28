@@ -8,7 +8,7 @@ zf-form
 [![Build Status](https://travis-ci.org/bupy7/zf-form.svg?branch=master)](https://travis-ci.org/bupy7/zf-form)
 [![Coverage Status](https://coveralls.io/repos/github/bupy7/zf-form/badge.svg?branch=master)](https://coveralls.io/github/bupy7/zf-form?branch=master)
 
-Simple and powerful form with [`zendframework/zend-inputfilter`](https://github.com/zendframework/zend-inputfilter)
+Simple and powerful form with [`laminas/laminas-inputfilter`](https://github.com/laminas/laminas-inputfilter)
 and [`bupy7/php-html-form`](https://github.com/bupy7/php-html-form).
 
 > If you want to use only form input filter I recomend to you [php-input-filter](https://github.com/bupy7/php-input-filter) instead. In the future this package (`zf-form`) will work together with `php-input-filter`.
@@ -243,7 +243,7 @@ return [
 Links
 -----
 
-- [Documentation of `zendframework/zend-inputfilter`](https://zendframework.github.io/zend-inputfilter/).
+- [Documentation of `laminas/laminas-inputfilter`](https://laminas.github.io/laminas-inputfilter/).
 - [Documentation of `bupy7/php-html-form`](https://github.com/bupy7/php-html-form/blob/master/README.md).
 
 License

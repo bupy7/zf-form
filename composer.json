@@ -1,15 +1,16 @@
 {
     "name": "bupy7/zf-form",
-    "description": "Simple form for Zend Framework 3.",
-    "version": "1.2.7",
+    "description": "The simplest form for Laminas.",
+    "version": "2.0.0",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zend",
+        "laminas",
         "form",
         "zf",
         "zf3",
         "zend framework",
-        "zend framework 3"
+        "zend framework 3",
+        "laminas"
     ],
     "authors": [
         {
@@ -20,16 +21,16 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "bupy7/php-html-form": "~1.0",
-        "zendframework/zend-view": "^2.8",
-        "zendframework/zend-modulemanager": "^2.7.2",
-        "zendframework/zend-servicemanager": "^3.1",
-        "zendframework/zend-validator": "^2.8",
-        "zendframework/zend-inputfilter": "^2.7.2"
+        "laminas/laminas-view": "^2.8",
+        "laminas/laminas-modulemanager": "^2.7.2",
+        "laminas/laminas-servicemanager": "^3.1",
+        "laminas/laminas-validator": "^2.8",
+        "laminas/laminas-inputfilter": "^2.7.2"
     },
     "require-dev": {
         "phpunit/phpunit": ">=5.5 <6.0.0",
         "satooshi/php-coveralls": "^1.0.1",
-        "zendframework/zend-test": "^3.0.1",
+        "laminas/laminas-test": "^3.0.1",
         "friendsofphp/php-cs-fixer": "^2.16.1"
     },
     "autoload": {

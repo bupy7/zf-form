@@ -2,7 +2,7 @@
 
 namespace Bupy7\Form;
 
-use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Laminas\ModuleManager\Feature\ConfigProviderInterface;
 
 /**
  * The module of Form.

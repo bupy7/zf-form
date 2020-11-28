@@ -2,7 +2,7 @@
 
 namespace Bupy7\Form\View\Helper;
 
-use Zend\View\Helper\AbstractHelper;
+use Laminas\View\Helper\AbstractHelper;
 use Bupy7\Form\FormAbstract;
 use Bupy7\Form\ErrorStorage\ErrorStorage;
 use AdamWathan\Form\FormBuilder;

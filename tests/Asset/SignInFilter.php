@@ -2,7 +2,7 @@
 
 namespace Bupy7\Form\Tests\Asset;
 
-use Zend\InputFilter\InputFilter;
+use Laminas\InputFilter\InputFilter;
 
 /**
  * @author Belosludcev Vasilij <https://github.com/bupy7>

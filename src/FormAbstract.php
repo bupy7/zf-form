@@ -2,7 +2,7 @@
 
 namespace Bupy7\Form;
 
-use Zend\InputFilter\BaseInputFilter;
+use Laminas\InputFilter\BaseInputFilter;
 use Bupy7\Form\InputFilter\InputFilter;
 use Bupy7\Form\Exception\InvalidCallException;
 use Bupy7\Form\Exception\UnknownPropertyException;
@@ -214,7 +214,7 @@ abstract class FormAbstract
      *     // and etc
      * ]
      * @return array
-     * @see \Zend\InputFilter\InputInterface
+     * @see \Laminas\InputFilter\InputInterface
      */
     protected function inputs()
     {

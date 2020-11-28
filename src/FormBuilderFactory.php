@@ -4,7 +4,7 @@ namespace Bupy7\Form;
 
 use Interop\Container\ContainerInterface;
 use AdamWathan\Form\FormBuilder;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 /**
  * The factory of `FormBuilder`.

@@ -1,6 +1,11 @@
 zf-form
 =======
 
+2.0.0 [2020-11-28]
+------------------
+
+- Enh: Upgraded Zend-packages to Laminas-packages.
+
 1.2.7 [2020-02-11]
 ------------------
 

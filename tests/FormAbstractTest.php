@@ -11,7 +11,7 @@ use Bupy7\Form\Tests\Asset\SignInScenarioForm;
 use Bupy7\Form\Tests\Asset\NullForm;
 use PHPUnit_Framework_TestCase;
 use Bupy7\Form\Tests\Asset\ProfileForm;
-use Zend\InputFilter\InputFilter;
+use Laminas\InputFilter\InputFilter;
 
 /**
  * @author Vasilij Belosludcev <https://github.com/bupy7>

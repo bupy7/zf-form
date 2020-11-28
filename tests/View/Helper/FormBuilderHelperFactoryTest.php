@@ -3,8 +3,8 @@
 namespace Bupy7\Form\Tests\View\Helper;
 
 use PHPUnit_Framework_TestCase;
-use Zend\View\HelperPluginManager;
-use Zend\ServiceManager\ServiceManager;
+use Laminas\View\HelperPluginManager;
+use Laminas\ServiceManager\ServiceManager;
 use AdamWathan\Form\FormBuilder;
 use Bupy7\Form\View\Helper\FormBuilderHelper;
 use Bupy7\Form\Tests\Asset\SignInPropertyForm;
